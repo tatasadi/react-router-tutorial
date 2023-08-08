@@ -5,9 +5,9 @@ import Header from "./Header"
 
 export default function Layout() {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col">
       <Header />
-      <div className="m-4 p-4 bg-white shadow  rounded-lg h-full">
+      <div className="sm:m-10 p-4 sm:p-10 bg-white shadow  rounded-lg">
         <Outlet />
       </div>
       <Footer />
