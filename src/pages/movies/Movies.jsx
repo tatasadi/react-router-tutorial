@@ -12,7 +12,7 @@ export default function Movies() {
       try {
         const res = await fetch("api/movies")
         const data = await res.json()
-        setMovies(data)
+        setMovies(data.movies)
       } catch (err) {
         setError(err)
       } finally {
