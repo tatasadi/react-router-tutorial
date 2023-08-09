@@ -4,7 +4,7 @@ import About from "./pages/About"
 import Home from "./pages/Home"
 import "./server.js";
 import NotFound from "./pages/NotFound";
-import Movies from "./pages/movies/movies";
+import Movies from "./pages/movies/Movies";
 import MovieDetails from "./pages/movies/MovieDetails";
 
 function App() {
