@@ -24,7 +24,7 @@ export default function Home() {
                 See the movies
               </Link>
               <Link to="about" className="text-sm font-semibold leading-6 text-gray-900">
-                About us <span aria-hidden="true">→</span>
+                About<span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
