@@ -1,10 +1,15 @@
 import { useEffect } from "react"
 import { useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useLocation } from "react-router-dom"
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState(null)
   const { id } = useParams()
+  const location = useLocation()
+
+  const search = location.state?.search || ""
+  const type = location.state?.type || "all"
+  console.log(search, type)
 
   useEffect(() => {
     fetch(`/api/movies/${id}`)
@@ -16,7 +21,7 @@ export default function MovieDetails() {
 
   return (
     <>
-      <Link to=".." relative="path" className="mb-4 block hover:text-gray-600">{"<-"} Back to all Movies</Link>
+      <Link to={`..${search}`} relative="path" className="mb-4 block hover:text-gray-600">&larr; <span>Back to {type}</span></Link>
       <div className="flex gap-4 items-center">
         {movie.poster && (
           <img
@@ -28,13 +33,13 @@ export default function MovieDetails() {
         <div>
           <h1>{movie.title}</h1>
           <div>
-            {movie.genres.map(genre => <em className="px-2 rounded-full bg-teal-200 text-sm mr-2">{genre}</em>)}
+            {movie.genres.map(genre => <em key={genre} className="px-2 rounded-full bg-teal-200 text-sm mr-2">{genre}</em>)}
           </div>
           <p><strong>Year:</strong> {movie.year}</p>
           <div>
             <strong>Cast:</strong>
             <ul>
-              {movie.cast?.map(c => <li>{c}</li>)}
+              {movie.cast?.map(c => <li key={c}>{c}</li>)}
             </ul>
           </div>
         </div>
